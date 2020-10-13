@@ -56,7 +56,7 @@ class Users extends CI_Controller {
 
 			$dataPengguna = array(
 				'nama_lengkap' => $this->input->post('nama_lengkap'),
-				'username' => $this->input->post('username'),
+				'nip' => $this->input->post('nip'),
 				'email' => $this->input->post('email'),
 				'no_telp' => $this->input->post('no_telp'),
 				'tgl_lahir' => $this->input->post('tgl_lahir'),
@@ -103,18 +103,8 @@ class Users extends CI_Controller {
 		if ($param1=='do_update') {
 			$dataPengguna = array(
 				'nama_lengkap' => $this->input->post('nama_lengkap'),
-				'username' => $this->input->post('username'),
+				'nip' => $this->input->post('nip'),
 				'email' => $this->input->post('email'),
-				'suku' => $this->input->post('suku'),
-				'rencana_pernikahan' => $this->input->post('rencana_pernikahan'),
-				'agama' => $this->input->post('agama'),
-				'pendidikan' => $this->input->post('pendidikan'),
-				'pekerjaan' => $this->input->post('pekerjaan'),
-				'status_perkawinan' => $this->input->post('status_perkawinan'),
-				'jumlah_anak' => $this->input->post('jumlah_anak'),
-				'info_1' => $this->input->post('info_1'),
-				'info_2' => $this->input->post('info_2'),
-				'sumber_info' => $this->input->post('sumber_info'),
 				'no_telp' => $this->input->post('no_telp'),
 				'tgl_lahir' => $this->input->post('tgl_lahir'),
 				'alamat' => $this->input->post('alamat'),

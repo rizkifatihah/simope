@@ -73,8 +73,8 @@
   								<h4 class="form-section"> About User</h4>
   								<div class="row">
   									<div class="form-group col-md-12 mb-2">
-  										<label class="sr-only" for="userinput2">Username</label>
-  										<input type="text" class="form-control border-primary" placeholder="Username" name="username" required>
+  										<label class="sr-only" for="userinput2">NIP</label>
+  										<input type="text" class="form-control border-primary" placeholder="NIP" name="nip" required>
   									</div>
   								</div>
   								<div class="row">

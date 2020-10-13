@@ -19,13 +19,14 @@ class Auth extends CI_Controller {
 
   public function login($param1='',$param2=''){
 		if ($param1=='do_login') {
-			$username = $this->input->post('username');
+			$nip = $this->input->post('nip');
 			$password = sha1($this->input->post('password'));
-			$auth = $this->AuthModel->getAccountLogin($username,$password);
+			$auth = $this->AuthModel->getAccountLogin($nip,$password);
 			if ($auth) {
 				foreach ($auth as $key) {
 					$loginSession = array(
 						'id_pengguna' => $key->id_pengguna,
+						'nip' => $key->nip,
 						'nama_lengkap' => $key->nama_lengkap,
 						'fotopengguna' => $key->fotopengguna,
 						'email' => $key->email,
@@ -38,7 +39,7 @@ class Auth extends CI_Controller {
 					'last_login' => date('Y-m-d H:i:s')
 				);
 				$this->session->set_userdata($loginSession);
-				$onlineStatus = $this->GeneralModel->update_general('tb_pengguna','username',$username,$activity_status);
+				$onlineStatus = $this->GeneralModel->update_general('tb_pengguna','nip',$nip,$activity_status);
 				redirect('panel/dashboard');
 			}else {
 				$this->session->set_flashdata('notif','<div class="alert alert-danger">Username atau Password yang anda masukkan salah!</div>');

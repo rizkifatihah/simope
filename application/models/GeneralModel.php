@@ -77,52 +77,14 @@ class GeneralModel extends CI_Model
     return $this->db->query("SELECT * FROM $table ORDER BY $order_by $order LIMIT $limit")->result();
   }
 
-  function list_pretest(){
-    return $this->db->query("SELECT * FROM tb_pre_test pt,tb_hak_akses ha WHERE pt.id_hak_akses = ha.nama_hak_akses")->result();
-  }
-
-  function list_question_pretest($id){
-    return $this->db->query("SELECT * FROM tb_pre_test pt,tb_question_pretest qpt WHERE pt.id_pre_test = qpt.id_pre_test AND qpt.id_pre_test='$id'")->result();
-  }
-  
-  function list_answer_pretest($id){
-    return $this->db->query("SELECT * FROM tb_answer_pretest ap,tb_question_pretest qpt WHERE ap.id_question_pretest = qpt.id_question_pretest AND qpt.id_question_pretest='$id'")->result();
-  }
-
-  function list_posttest(){
-    return $this->db->query("SELECT * FROM tb_post_test pt,tb_hak_akses ha WHERE pt.id_hak_akses = ha.nama_hak_akses")->result();
-  }
-
-  function list_question_posttest($id){
-    return $this->db->query("SELECT * FROM tb_post_test pt,tb_question_posttest qpt WHERE pt.id_post_test = qpt.id_post_test AND qpt.id_post_test='$id'")->result();
-  }
-  
-  function list_answer_posttest($id){
-    return $this->db->query("SELECT * FROM tb_answer_posttest ap,tb_question_posttest qpt WHERE ap.id_question_posttest = qpt.id_question_posttest AND qpt.id_question_posttest='$id'")->result();
-  }
-
-  function list_media_edukasi(){
-    return $this->db->query("SELECT * FROM tb_media_edukasi me, tb_hak_akses ha WHERE me.hak_akses = ha.nama_hak_akses")->result();
-  }
-
-  function get_point_pre_test($id)
+  function requestTask($persetujuan)
   {
-    return $this->db->query("SELECT SUM(ap.point_answer) as jumlah FROM tb_answer_user_pretest aup , tb_answer_pretest ap, tb_question_pretest qp WHERE aup.id_question_pretest = qp.id_question_pretest AND aup.id_answer_test = ap.id_answer_pretest AND aup.id_user = '$id'")->row();
+    return $this->db->query("SELECT * FROM tb_tasklist t ,tb_pengguna p WHERE t.created_by = p.id_pengguna AND t.status_persetujuan ='$persetujuan'")->result();
   }
 
-  function get_point_post_test($id)
+  function requestTaskId($persetujuan,$id_pengguna)
   {
-    return $this->db->query("SELECT SUM(ap.point_answer) as jumlah FROM tb_answer_user_posttest aup , tb_answer_posttest ap, tb_question_posttest qp WHERE aup.id_question_posttest = qp.id_question_posttest AND aup.id_answer_test = ap.id_answer_posttest AND aup.id_user = '$id'")->row();
-  }
-
-  function get_responden_pretest()
-  {
-    return $this->db->query("SELECT * FROM tb_answer_user_pretest aup,tb_pengguna p WHERE aup.id_user = p.id_pengguna  GROUP BY aup.id_user")->result();
-  }
-
-  function get_responden_posttest()
-  {
-    return $this->db->query("SELECT * FROM tb_answer_user_posttest aup,tb_pengguna p WHERE aup.id_user = p.id_pengguna  GROUP BY aup.id_user")->result();
+    return $this->db->query("SELECT * FROM tb_tasklist t ,tb_pengguna p WHERE t.created_by = p.id_pengguna AND t.status_persetujuan ='$persetujuan' AND created_by ='$id_pengguna'")->result();
   }
 
 }

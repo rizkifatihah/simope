@@ -8,9 +8,9 @@ class AuthModel extends CI_Model {
     parent::__construct();
   }
 
-  function getAccountLogin($username,$password){
+  function getAccountLogin($nip,$password){
     return $this->db->query("SELECT * FROM tb_pengguna p WHERE
-                             p.username = '$username' and p.password = '$password' and status = 'actived'")->result();
+                             p.nip = '$nip' and p.password = '$password' and status = 'actived'")->result();
   }
 
   function getUserParentModul($hak_akses){

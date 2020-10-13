@@ -77,8 +77,8 @@
   								<h4 class="form-section"> About User</h4>
   								<div class="row">
   									<div class="form-group col-md-12 mb-2">
-  										<label class="sr-only" for="userinput2">Username</label>
-  										<input type="text" class="form-control border-primary" placeholder="Username" name="username" id="username" required>
+  										<label class="sr-only" for="userinput2">NIP</label>
+  										<input type="text" class="form-control border-primary" placeholder="NIP" name="nip" id="nip" required>
   									</div>
   								</div>
   								<div class="row">
@@ -145,7 +145,7 @@
 <!-- END: Content-->
 <script type="text/javascript">
   $('#nama_lengkap').val('<?php echo $users->nama_lengkap;?>');
-  $('#username').val('<?php echo $users->username;?>');
+  $('#nip').val('<?php echo $users->nip;?>');
   $('#nama_hak_akses').val('<?php echo $users->hak_akses;?>');
   $('#email').val('<?php echo $users->email;?>');
   $('#no_telp').val('<?php echo $users->no_telp;?>');

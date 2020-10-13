@@ -61,7 +61,7 @@ $appsProfile = $this->SettingsModel->get_profile();
             <div class="card border-grey border-lighten-3 m-0">
                 <div class="card-header border-0">
                     <div class="card-title text-center">
-                        <div class="p-1"><img class="img-fluid mx-auto rounded-circle" src="<?php echo base_url().$appsProfile->logo;?>" alt="logo" style="height:150px;width:150px;"></div>
+                        <div class="p-1"><img class="img-fluid mx-auto rounded-circle" src="<?php echo base_url().$appsProfile->logo;?>" alt="logo" style="height:50px;width:150px;"></div>
                         <h6 class="card-subtitle text-muted text-center d-none d-sm-block font-small-3 pt-2"><span><?php echo $appsProfile->agency;?></span></h6>
                     </div>
                     <h6 class="card-subtitle line-on-side text-muted text-center d-none d-sm-block font-small-3 pt-2"><span><?php echo $appsProfile->apps_version;?></span></h6>
@@ -71,7 +71,7 @@ $appsProfile = $this->SettingsModel->get_profile();
                       <?php echo $this->session->flashdata('notif'); ?>
                         <form class="form-horizontal form-simple" action="<?php echo base_url('auth/login/do_login/');?>" novalidate method="post">
                             <fieldset class="form-group position-relative has-icon-left mb-0">
-                                <input type="text" name="username" class="form-control form-control-lg" id="user-name" placeholder="Username" onkeyup="test()" required>
+                                <input type="text" name="nip" class="form-control form-control-lg" id="user-name" placeholder="NIP" onkeyup="test()" required>
                                 <div class="form-control-position">
                                     <i class="ft-user"></i>
                                 </div>
